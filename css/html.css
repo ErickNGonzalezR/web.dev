@@ -1,0 +1,40 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+}
+
+.main {
+  display: flex;
+  justify-content: center;
+  flex-direction: row-reverse;
+}
+.section {
+  display: flex;
+  justify-items: center;
+  align-items: center;
+  margin: 60px 50px 0 250px;
+  flex-direction: column;
+}
+.aside {
+  top :48%;
+  left: 0;
+  position: fixed;
+  display: flex;
+  width: 200px;
+  flex-direction: column;
+  background-color: #0040c1;
+  padding: 10px;
+  z-index: 100;
+  justify-content: center;
+  border-radius: 10px;
+  height: fit-content;
+}
+img {
+  width: 500px;
+}
+.aside a {
+  text-decoration: none;
+  color: white;
+  margin: 10px;
+}

@@ -4,26 +4,33 @@ body {
 }
 
 /* Estilo del navbar */
-.navbar {
-    left: 35%;
-    position: absolute;
-    z-index: 10;
+.na{
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
+    justify-items: center;
+}
+.navbar {
+width: 100%;
+    position: fixed;
+    display: flex;
+    justify-content: center;
     align-items: center;
-    background-color: (rgb(219, 222, 228));
+    background: #0040c1;
     padding: 5px 10px;
+    z-index: 10;
 }
 
 .navbar a {
+    margin:  5px;
     color: white;
     text-decoration: none;
-    padding: 5px 10px;
+    padding: 10px 15px;
     transition: background-color 0.1s;
 }
 
 .navbar a:hover {
-    background-color: #0048da;
+    background-color: white;
+    color: #0048da;
     border-radius: 5px;
 }
 
@@ -34,6 +41,8 @@ body {
 }
 
 .dropdown-content {
+    margin-top: 10px;
+    border-radius: 10px;
     display: none;
     position: absolute;
     background-color: rgb(0, 61, 184,0.85);
@@ -44,13 +53,14 @@ body {
 
 .dropdown-content a {
     color: white;
-    padding: 10px 15px;
+    padding: 5px 10px;
     text-decoration: none;
     display: block;
 }
 
 .dropdown-content a:hover {
-    background-color: #0040c1;
+    background-color: #ffffff;
+
 }
 
 .dropdown:hover .dropdown-content {

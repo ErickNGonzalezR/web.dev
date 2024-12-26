@@ -1,0 +1,745 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="css/estructuraDocumento.css">
+        <title>Estructura del documento</title>
+    </head>
+    <body>
+        <div>
+
+        </div>
+        <div class="main-container">
+            <div class="main">
+                <h1>Estructura del documento</h1>
+                <p>
+                    Los documentos HTML incluyen una declaración de tipo de
+                    documento y el elemento raíz &lt;html&gt;. El encabezado y
+                    el
+                    cuerpo
+                    del documento se anidan en el elemento &lt;html&gt;. Si bien
+                    el
+                    encabezado del documento no es visible para el visitante,
+                    es fundamental que el sitio funcione. Contiene
+                    toda la metainformación, incluida la información de los
+                    motores de búsqueda y los resultados de redes sociales,
+                    los íconos de la pestaña del navegador y el acceso
+                    directo a la pantalla principal de un dispositivo móvil,
+                    y el comportamiento y la presentación de tu contenido.
+                </p>
+                <p>
+                    Para crear el sitio MachineLearningWorkshop.com (MLW),
+                    empieza
+                    por incluir los componentes que deben considerarse
+                    esenciales
+                    para cada página web: el tipo de documento, el lenguaje
+                    humano
+                    del contenido, el grupo de caracteres y, por supuesto, el
+                    título
+                    o nombre del sitio o la aplicación.
+                </p>
+                <h3>
+                    Agregar a todos los documentos HTML
+                </h3>
+                <p>
+                    Hay varias características que se deben considerar
+                    esenciales
+                    para todas y cada una de las páginas web. Los navegadores
+                    seguirán renderizando contenido si faltan estos elementos,
+                    pero
+                    los incluyen, siempre.
+                </p>
+                <h4>
+                    &lt;!DOCTYPE html&gt;
+                </h4>
+                <p>
+                    Lo primero que hay en un documento HTML es el preámbulo.
+                    Para
+                    HTML, solo necesitas &lt;!DOCTYPE html&gt;. Esto puede
+                    parecer
+                    un
+                    elemento HTML, pero no lo es. Es un tipo especial de nodo
+                    llamado "doctype". El doctype le indica al navegador que use
+                    el
+                    modo de estándares. Si se omite, los navegadores usarán un
+                    modo
+                    de renderización diferente, conocido como modo no estándar.
+                    Incluir el doctype ayuda a prevenir el modo no estándar.
+                </p>
+                <h4> &lt;html&gt;</h4>
+                <p>
+                    El elemento &lt;html&gt; es el elemento raíz de un documento
+                    HTML. Es el elemento superior de &lt;head&gt; y
+                    &lt;body&gt;, y
+                    contiene todo lo
+                    que está en el documento HTML, excepto el doctype.
+                    Si se omite, será implícito, pero es importante
+                    incluirlo, ya que este es el elemento en el que se
+                    declara el idioma del contenido del documento.
+                </p>
+                <h4>
+                    Idioma del contenido
+                </h4>
+                <p>
+                    El atributo de idioma lang agregado a la etiqueta
+                    &lt;html&gt;
+                    define
+                    el idioma principal del documento. El valor del atributo
+                    lang es un código de idioma ISO de dos o tres letras seguido
+                    de la región. La región es opcional, pero se recomienda
+                    usarla, ya que el idioma puede variar mucho entre regiones.
+                    Por ejemplo, el francés es muy diferente en Canadá (fr-CA)
+                    en comparación con Burkina Faso (fr-BF). Esta declaración de
+                    idioma permite que los lectores de pantalla, los motores de
+                    búsqueda y los servicios de traducción conozcan el idioma
+                    del documento.
+                </p>
+                <p>
+                    El atributo lang no se limita a la etiqueta &lt;html&gt;. Si
+                    la
+                    página
+                    contiene texto en un idioma distinto al del documento
+                    principal, se debe usar el atributo lang para identificar
+                    las excepciones al idioma principal del documento. Al igual
+                    que cuando se incluye en el encabezado, el atributo lang en
+                    el cuerpo no tiene efecto visual. Solo agrega semántica, lo
+                    que permite que las tecnologías de accesibilidad y los
+                    servicios automatizados conozcan el idioma del contenido
+                    afectado.
+                </p>
+                <p>
+                    Además de configurar el idioma del documento y las
+                    excepciones a
+                    ese idioma base, el atributo se puede usar en selectores
+                    CSS.
+                    Puedes segmentar tus anuncios para &lt;span
+                    lang="fr-fr"&gt;Ceci
+                    n'est
+                    pas une pipe.&lt;/span&gt; con los selectores de idioma y
+                    atributo
+                    [lang|="fr"] y :lang(fr).
+                </p>
+                <h4>
+                    &lt;head&gt;
+                </h4>
+                <p>
+                    Anidados entre las etiquetas &lt;html&gt; de apertura y
+                    cierre,
+                    encontramos los dos elementos secundarios, &lt;head&gt; y
+                    &lt;body&gt;:
+                </p>
+                <pre>
+                <code>
+                    &lt;!DOCTYPE html&gt;
+                    &lt;html lang="en-US"&gt;
+                        &lt;head&gt;
+                        &lt;/head&gt;
+                        &lt;body&gt;
+                        &lt;/body&gt;
+                    &lt;/html&gt;
+                </code>
+            </pre>
+                <p>
+                    El &lt;head&gt;, o encabezado de metadatos del documento,
+                    contiene
+                    todos los metadatos de un sitio o una aplicación. El cuerpo
+                    incluye el contenido visible. El resto de esta sección se
+                    centra en los componentes que se encuentran anidados dentro
+                    de la &lt;head&gt;&lt;/head&gt; de apertura y cierre
+                </p>
+                <h3>
+                    Componentes obligatorios dentro de &lt;head&gt;
+                </h3>
+                <p>
+                    Los metadatos del documento, incluidos el título, el grupo
+                    de
+                    caracteres, la configuración del viewport, la descripción,
+                    la
+                    URL base, los vínculos a las hojas de estilo y los íconos,
+                    se
+                    encuentran en el elemento &lt;head&gt;. Si bien es posible
+                    que
+                    no
+                    necesites todas estas funciones, incluye siempre el grupo de
+                    caracteres, el título y la configuración del viewport.
+                </p>
+                <h4>
+                    Codificación de caracteres
+                </h4>
+                <p>
+                    El primer elemento de &lt;head&gt; debe ser la declaración
+                    de
+                    codificación de caracteres de charset. Se encuentra antes
+                    del título para garantizar que el navegador pueda procesar
+                    los caracteres de ese título y todos los caracteres del
+                    resto del documento.
+                </p>
+                <p>
+                    La codificación predeterminada en la mayoría de los
+                    navegadores
+                    es windows-1252, según la configuración regional. Sin
+                    embargo,
+                    debes usar UTF-8, ya que habilita la codificación de uno a
+                    cuatro bytes para todos los caracteres, incluso aquellos que
+                    ni
+                    siquiera sabías que existían. Además, es el tipo de
+                    codificación
+                    requerido por HTML5.
+                </p>
+                <p>
+                    Para establecer la codificación de caracteres en UTF-8,
+                    incluye
+                    lo siguiente:
+                </p>
+                <pre><code>
+                &lt;meta charset="utf-8" /&gt;
+            </code></pre>
+                <p>
+                    Si declaras UTF-8 (no distingue mayúsculas de minúsculas),
+                    incluso puedes incluir emojis en el título.
+                </p>
+                <p>
+                    La codificación de caracteres se hereda en todo el contenido
+                    del
+                    documento, incluso en
+                    &lt;style&gt; y &lt;script&gt;. Esta pequeña declaración
+                    significa que puedes incluir emojis en los nombres de las
+                    clases
+                    y en la API del selector (nuevamente, no lo hagas). Si usas
+                    emojis, asegúrate de usarlos de una manera que mejore la
+                    usabilidad sin dañar la accesibilidad.
+                </p>
+                <h4>
+                    Título del documento
+                </h4>
+                <p>
+                    Tu página principal y todas las páginas adicionales deben
+                    tener
+                    un título único. El contenido del título del documento, el
+                    texto
+                    entre las etiquetas &lt;title&gt; de apertura y cierre, se
+                    muestra en
+                    la pestaña del navegador, la lista de ventanas abiertas, el
+                    historial, los resultados de la búsqueda y, a menos que se
+                    redefinen con <a
+                        href="https://web.dev/learn/html/metadata?hl=es-419">etiquetas
+                        &lt;meta&gt;</a>, en tarjetas de redes
+                    sociales.
+                </p>
+                <pre><code>
+                    &lt;title&gt;Machine Learning Workshop&lt;/title&gt;
+                </code></pre>
+                <h4>
+                    Metadatos de viewport
+                </h4>
+                <p>
+                    La otra metaetiqueta que debe considerarse esencial es la
+                    <a
+                        href="https://web.dev/learn/design/intro?hl=es-419#a_meta_element_for_viewport">viewport</a>,
+                    que ayuda a mejorar la capacidad de respuesta del
+                    sitio y permite que el contenido se procese correctamente de
+                    forma predeterminada, sin importar el ancho de la viewport.
+                    Si
+                    bien la <a
+                        href="https://developer.mozilla.org/es/docs/Web/HTML/Viewport_meta_tag">metaetiqueta
+                        de la ventana de visualización</a> existe desde
+                    junio de 2007, cuando se lanzó el primer iPhone, <a
+                        href="https://drafts.csswg.org/css-viewport/#viewport-meta">se
+                        documentó en
+                        una especificación</a> recientemente. Ya que permite
+                    controlar el
+                    tamaño y la escala de un viewport, y evita que se reduzca el
+                    tamaño del contenido del sitio para que se ajuste a un sitio
+                    de
+                    960 px en una pantalla de 320 px, es definitivamente
+                    recomendable.
+                </p>
+                <pre><code>
+                &lt;meta name="viewport" content="width=device-width" /&gt;
+            </code></pre>
+                <p>
+                    El código anterior significa
+                    "hacer que el sitio sea responsivo, comenzando por hacer que el ancho del contenido sea el ancho de la pantalla".
+                    Además de width, puedes configurar el zoom y la
+                    escalabilidad,
+                    pero ambos tienen valores accesibles de forma
+                    predeterminada. Si
+                    quieres ser explícito, incluye lo siguiente:
+                </p>
+                <pre><code>
+                &lt;meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=1" /&gt;
+            </code>
+            </pre>
+                <p>
+                    La vista del puerto es parte de la <a
+                        href="https://dequeuniversity.com/rules/axe/4.4/meta-viewport">auditoría
+                        de accesibilidad de Lighthouse</a>. que tu sitio pasará
+                    si
+                    es escalable y no tiene un tamaño máximo establecido.
+                </p>
+                <p>
+                    Hasta ahora, el esquema de nuestro archivo HTML es el
+                    siguiente:
+                </p>
+                <pre><code>
+                &lt;!DOCTYPE html&gt;
+                    &lt;html lang="en"&gt;
+                        &lt;head&gt;
+                        &lt;meta charset="utf-8" /&gt;
+                        &lt;title&gt;Machine Learning Workshop&lt;/title&gt;
+                        &lt;meta name="viewport" content="width=device-width" /&gt;
+                    &lt;/head&gt;
+                    &lt;body&gt;
+
+                    &lt;/body&gt;
+                &lt;/html&gt;
+            </code></pre>
+                <h3>
+                    Otro contenido de &lt;head&gt;
+                </h3>
+                <p>
+                    Se incluye mucho más en &lt;head&gt;. Todos los metadatos,
+                    de
+                    hecho.
+                    La mayoría de los elementos que encontrarás en &lt;head&gt;
+                    se
+                    tratan aquí, a la vez que se guarda una gran cantidad de
+                    opciones de &lt;meta&gt;
+                </p>
+                <h4>
+                    CSS
+                </h4>
+                <p>
+                    <head> es donde incluyes estilos para tu HTML. Existe una <a
+                            href="https://web.dev/learn/css?hl=es-419">ruta de
+                            aprendizaje dedicada a CSS </a>obtener información
+                        sobre
+                        los estilos, pero necesitas saber cómo incluirlos en tus
+                        documentos HTML.
+                    </p>
+                    <p>
+                        Existen tres maneras de incluir CSS: &lt;link&gt;,
+                        &lt;style&gt; y el atributo style.
+                    </p>
+                    <p>
+                        Las dos formas principales de incluir estilos en tu
+                        archivo
+                        HTML son incluir un recurso externo mediante un elemento
+                        &lt;link&gt; con el atributo rel establecido en
+                        stylesheet o
+                        incluir CSS directamente en el encabezado de tu
+                        documento
+                        dentro de las etiquetas &lt;style&gt; de apertura y
+                        cierre.
+                    </p>
+                    <p>
+                        La etiqueta &lt;link&gt; es el método preferido para
+                        incluir
+                        hojas de estilo. Vincular una o varias hojas de estilo
+                        externas es bueno tanto para la experiencia del
+                        desarrollador como para el rendimiento del sitio: puedes
+                        mantener CSS en un solo lugar, en lugar de que se
+                        aplique a todos lados, y los navegadores pueden
+                        almacenar en caché el archivo externo, lo que significa
+                        que no tienes que volver a descargarlo con cada
+                        navegación de la página.
+                    </p>
+                    <p>
+
+                        La sintaxis es &lt;link rel="stylesheet"
+                        href="styles.css"&gt;, en la que style.css es la URL de
+                        tu hoja de estilo. Con frecuencia, verás
+                        type="text/css". No es necesario. Si incluyes estilos
+                        escritos en un formato que no sea CSS, se necesita type.
+                        Sin embargo, como no hay ningún otro tipo, este atributo
+                        no es necesario. El atributo rel define la relación; en
+                        este caso, stylesheet. Si omites esto, no se vinculará
+                        tu CSS.
+                        <br><br>
+                        En breve, descubrirás otros valores de rel, pero primero
+                        analizaremos otras formas de incluir CSS.
+                    </p>
+                    <p>
+                        Si deseas que los diseños externos de tu hoja de estilo
+                        se encuentren dentro de una capa en cascada, pero no
+                        tienes acceso para editar el archivo CSS para colocar la
+                        información de la capa, incluye el CSS con @import
+                        dentro de un &lt;style&gt;:
+                    </p>
+
+                    <pre><code>
+                        &lt;style&gt;
+                            @import "styles.css" layer(firstLayer);
+                          &lt;/style&gt;
+                    </code></pre>
+                    <p>
+                        Cuando usas @import para importar hojas de estilo a tu
+                        documento (opcionalmente, a capas en cascada), las
+                        sentencias @import deben ser las primeras en tu
+                        &lt;style&gt; o en tu hoja de estilo vinculada, fuera de
+                        la declaración de grupo de caracteres.
+                    </p>
+                    <p>
+                        Si bien las capas en cascada todavía son bastante nuevas
+                        y es posible que no detectes el @import
+                        en un &lt;style&gt; principal, a menudo verás
+                        propiedades personalizadas declaradas en un bloque
+                        de estilo principal:
+                    </p>
+                    <pre><code>
+                        &lt;style&gt;
+                            :root {
+                              --theme-color: #226DAA;
+                            }
+                          &lt;/style&gt;
+                    </code></pre>
+                    <p>
+                        Los estilos, ya sea mediante &lt;link&gt; o
+                        &lt;style&gt;, o ambos, deben ir en el encabezado.
+                        Funcionarán si se incluyen en el cuerpo del documento,
+                        pero es recomendable que tus estilos aparezcan en el
+                        encabezado por motivos de rendimiento. Esto puede
+                        parecer contraintuitivo, ya que puede parecer que deseas
+                        que el contenido se cargue primero, pero, en realidad,
+                        quieres que el navegador sepa cómo renderizar el
+                        contenido cuando se carga. Agregar diseños primero evita
+                        el rediseño innecesario que se produce si se aplica un
+                        estilo a un elemento después de su primera
+                        renderización.
+                    </p>
+                    <p>
+                        Luego, existe una forma de incluir estilos que nunca
+                        usarás en la &lt;head&gt; de tu documento: los estilos
+                        intercalados. Probablemente nunca uses estilos
+                        intercalados en la cabeza, ya que las contraseñas
+                        las hojas de estilo ocultan el encabezado de forma
+                        predeterminada. Sin embargo, si deseas crear un
+                        editor de CSS sin JavaScript, por ejemplo, para
+                        probar los elementos personalizados de tu página,
+                        puedes hacer visible el encabezado con display:
+                        block y, luego, ocultar todo lo que contiene y,
+                        luego, hacer visible un bloque de estilo editable en
+                        el contenido con un atributo style intercalado.
+                    </p>
+                    <pre><code>
+                            &lt;style contenteditable style="display: block; font-family: monospace; white-space: pre;"&gt;
+                                head { display: block; }
+                                head * { display: none; }
+                                :root {
+                                    --theme-color: #226DAA;
+                                }
+                            &lt;/style&gt;
+                        </code></pre>
+                    <p>
+                        Si bien puedes agregar estilos intercalados en
+                        &lt;style&gt;, es mucho más divertido diseñar tu
+                        &lt;style&gt; en style.
+                    </p>
+                    <h4>
+                        Otros usos del elemento &lt;link&gt;
+                    </h4>
+                    <p>
+                        El elemento link se usa para crear relaciones entre el
+                        documento HTML y los recursos externos. Es posible que
+                        algunos de estos recursos se descarguen, mientras que
+                        otros son informativos. El tipo de relación se define
+                        por el valor del atributo rel. Actualmente, hay <a
+                            href="https://html.spec.whatwg.org/multipage/links.html#linkTypes">25
+                            valores disponibles para el atributo rel</a> que se
+                        pueden usar con &lt;link&gt;, &lt;a&gt; y &lt;area&gt;,
+                        o &lt;form&gt;, y
+                        algunos se pueden usar con todos. Es preferible
+                        incluir las relacionadas con la metainformación
+                        en el encabezado y las relacionadas con el
+                        rendimiento en &lt;body&gt;.
+                        <br><br>
+                        Ahora, incluirás otros tres tipos en tu encabezado:
+                        icon, alternate y canonical. (incluirás un cuarto tipo,
+                        <a
+                            href="https://web.dev/learn/html/metadata?hl=es-419">rel="manifest",
+                            en el siguiente módulo)</a>.
+                    </p>
+                    <h5>
+                        Ícono de página
+                    </h5>
+                    <p>
+                        Usa la etiqueta &lt;link&gt; con el par atributo/valor
+                        rel="icon" para identificar el ícono de página que se
+                        usará en tu documento. Un ícono de página es un ícono
+                        muy pequeño que aparece en la pestaña del navegador,
+                        generalmente a la izquierda del título del documento.
+                        Cuando tengas una cantidad difícil de manejar de
+                        pestañas abiertas, estas se reducirán y el título puede
+                        desaparecer por completo, pero el ícono siempre
+                        permanecerá visible. La mayoría de los íconos de página
+                        son logotipos de empresas o aplicaciones.
+                    </p>
+                    <p>
+                        Si no declaras un ícono de página, el navegador buscará
+                        un archivo llamado favicon.ico en el directorio de nivel
+                        superior (la carpeta raíz del sitio web). Con
+                        &lt;link&gt;,
+                        puedes usar un nombre de archivo y una ubicación
+                        diferentes:
+                    </p>
+                    <pre><code>
+                        &lt;link rel="icon" sizes="16x16 32x32 48x48" type="image/png" href="/images/mlwicon.png" /&gt;
+                    </code></pre>
+                    <p>
+                        El código anterior dice
+                        "Usa mlwicon.png como ícono para situaciones en las que sea útil un tamaño de 16, 32 px o 48 px".
+                        El atributo de tamaños acepta el valor de any para
+                        íconos escalables o una lista de valores width X height
+                        cuadrados separados por espacios. donde los valores de
+                        ancho y altura son 16, 32, 48 o mayores en esa secuencia
+                        geométrica, se omite la unidad de píxeles y la X no
+                        distingue mayúsculas de minúsculas.
+                    </p>
+                    <pre><code>
+                    &lt;link rel="apple-touch-icon" sizes="180x180" href="/images/mlwicon.png" /&gt;
+                    &lt;link rel="mask-icon" href="/images/mlwicon.svg" color="#226DAA" /&gt;
+                    </code></pre>
+                    <p>
+                        Hay dos tipos especiales de íconos no estándar para el
+                        navegador Safari: apple-touch-icon para dispositivos iOS
+                        y mask-icon para pestañas fijas en macOS.
+                        apple-touch-icon se aplica solo cuando el usuario agrega
+                        un sitio a la pantalla principal: puedes especificar
+                        varios íconos con diferentes sizes para distintos
+                        dispositivos. mask-icon solo se usará si el usuario fija
+                        la pestaña en la versión de escritorio de Safari: el
+                        ícono debe ser un archivo SVG monocromático y el
+                        atributo color cubre el ícono con el color necesario.
+                    </p>
+                    <p>
+                        Si bien puedes usar &lt;link&gt; para definir una imagen
+                        completamente diferente en cada página o incluso en cada
+                        carga de página, no lo hagas. Para lograr coherencia y
+                        una buena experiencia del usuario, usa una sola imagen.
+                        Twitter usa el pájaro azul: cuando lo ves en la pestaña
+                        del navegador, sabes que esa pestaña está abierta a una
+                        página de Twitter sin hacer clic en ella. Google usa
+                        íconos de página diferentes para cada una de sus
+                        aplicaciones: por ejemplo, un ícono de correo o de
+                        calendario. Sin embargo, todos los íconos de Google usan
+                        la misma combinación de colores. Una vez más, sabes
+                        exactamente cuál es el contenido de una pestaña abierta
+                        simplemente por el ícono.
+                    </p>
+                    <h5>
+                        Versiones alternativas del sitio
+                    </h5>
+                    <p>
+                        Usamos el valor alternate del atributo rel para
+                        identificar traducciones, o representaciones
+                        alternativas, del sitio.
+                        <br><br>
+                        Supongamos que tenemos versiones del sitio traducidas al
+                        francés y al portugués de Brasil:
+                    </p>
+                    <pre><code>
+                            &lt;link rel="alternate" href="https://www.machinelearningworkshop.com/fr/" hreflang="fr-FR" /&gt;
+                            &lt;link rel="alternate" href="https://www.machinelearningworkshop.com/pt/" hreflang="pt-BR" /&gt;
+                        </code></pre>
+                    <p>
+                        Cuando se usa el alternate para una traducción, se debe
+                        establecer el atributo hreflang.
+                        <br><br>
+                        El valor alternativo es más que solo traducciones. Por
+                        ejemplo, el atributo type puede definir el URI
+                        alternativo para un feed RSS cuando el atributo type se
+                        establece en application/rss+xml o application/atom+xml.
+                        Vamos a vincular a una versión en PDF simulada del
+                        sitio.
+                    </p>
+                    <pre><code>
+                        &lt;link rel="alternate" type="application/x-pdf" href="https://machinelearningworkshop.com/mlw.pdf" /&gt;
+                    </code></pre>
+                    <p>
+                        Si el valor rel es alternate stylesheet, define una <a
+                            href="https://developer.mozilla.org/es/docs/Web/CSS/Alternative_style_sheets">hoja
+                            de estilo alternativa</a> y se debe establecer el
+                        atributo title y asignarle un nombre a ese estilo
+                        alternativo.
+                    </p>
+                    <h5>
+                        Canónico
+                    </h5>
+                    <p>
+                        Si creas varias traducciones o versiones de Machine
+                        Learning Workshop, es posible que los motores de
+                        búsqueda se confundan respecto de qué versión es la
+                        fuente autorizada. Para ello, usa rel="canonical" para
+                        identificar la URL preferida para el sitio o la
+                        aplicación.
+                        <br><br>
+                        Incluye la URL canónica en todas las páginas traducidas
+                        y en la página principal, indica nuestra URL preferida:
+                    </p>
+                    <pre><code>
+                        &lt;rel="canonical" href="https://www.machinelearning.com" /&gt;
+                    </code></pre>
+                    <p>
+                        El vínculo canónico rel="canonical" se usa con mayor
+                        frecuencia para realizar publicaciones cruzadas con
+                        publicaciones y plataformas de blogs para dar crédito a
+                        la fuente original. Cuando un sitio distribuye
+                        contenido, este debe incluir el vínculo canónico a la
+                        fuente original.
+                    </p>
+                    <h4>
+                        Secuencias de comandos
+                    </h4>
+                    <p>
+                        La etiqueta &lt;script&gt; se usa para incluir
+                        secuencias de comandos. El tipo predeterminado es
+                        JavaScript. Si incluyes cualquier otro lenguaje de
+                        programación, incluye el atributo type con el tipo de
+                        MIME, o bien type="module" si es un módulo de
+                        JavaScript. Solo se analizan y ejecutan los módulos de
+                        JavaScript y de JavaScript.
+                        <br><br>
+                        Las etiquetas &lt;script&gt; se pueden usar para
+                        encapsular tu código o descargar un archivo externo. En
+                        MLW, no hay un archivo de secuencia de comandos externo
+                        porque, al contrario de la creencia popular, no
+                        necesitas JavaScript para un sitio web funcional y,
+                        bueno, esta es una ruta de aprendizaje de HTML, no una
+                        de JavaScript.
+                        <br><br>
+                        Más adelante, incluirás un fragmento de JavaScript para
+                        crear un
+                    </p>
+                    <pre><code>
+                        &lt;script&gt;
+                            document.getElementById('switch').addEventListener('click', function() {
+                            document.body.classList.toggle('black');
+                            });
+                        &lt;/script&gt;
+                    </code></pre>
+                    <p>
+                        Este fragmento crea un controlador de eventos para un
+                        elemento con el ID switch. Con JavaScript, no quieres
+                        hacer referencia a un elemento antes de que exista.
+                        Todavía no existe, así que no la incluiremos todavía.
+                        Cuando agreguemos el elemento del interruptor de luz,
+                        agregaremos el &lt;script&gt; en la parte inferior de
+                        &lt;body&gt;, en lugar de en &lt;head&gt;. ¿Por qué? Dos
+                        razones. Queremos asegurarnos de que los elementos
+                        existan antes de que se encuentre la secuencia de
+                        comandos que hace referencia a ellos, ya que no se basa
+                        en esta secuencia de comandos en un evento
+                        DOMContentLoaded. Y, principalmente, JavaScript no solo
+                        render-blocking, sino que el navegador detiene la
+                        descarga de todos los elementos cuando se descargan las
+                        secuencias de comandos y no reanuda la descarga de otros
+                        elementos hasta que JavaScript haya terminado de
+                        ejecutarse. Por esta razón, a menudo encontrarás
+                        solicitudes de JavaScript al final del documento en
+                        lugar de en el encabezado.
+                        <br><br>
+                        Hay dos atributos que pueden reducir la naturaleza de
+                        bloqueo de la descarga y ejecución de JavaScript: defer
+                        y async. Con defer, la renderización de HTML no se
+                        bloquea durante la descarga, y el JavaScript solo se
+                        ejecuta después de que se termina de renderizar el
+                        documento. Con async, la renderización tampoco se
+                        bloquea durante la descarga, pero una vez que finaliza
+                        la descarga de la secuencia de comandos, la
+                        renderización se detiene mientras se ejecuta JavaScript.
+                    </p>
+                    <img src="img/html/ejemploScript.png" alt>
+                    <p>
+                        Para incluir el código JavaScript de MLW en un archivo
+                        externo, puedes escribir lo siguiente:
+                    </p>
+                    <pre><code>
+                        &lt;script src="js/switch.js" defer&lt;&lt;/script&lt;
+                    </code></pre>
+                    <p>
+                        Si agregas el atributo defer, se aplaza la ejecución de
+                        la secuencia de comandos hasta que todo esté
+                        renderizado, lo que evita que esta afecte el
+                        rendimiento. Los atributos async y defer solo son
+                        válidos en secuencias de comandos externas.
+                    </p>
+                    <h4>
+                        Base
+                    </h4>
+                    <p>
+                        Hay otro elemento que solo se encuentra en
+                        &lt;head&gt;.. No se usa con mucha frecuencia, ya que el
+                        elemento &lt;base&gt; permite establecer una URL y un
+                        objetivo de vínculo predeterminados. El atributo href
+                        define la URL base para todos los vínculos relativos.
+                        <br><br>
+                        El atributo target, válido en &lt;base&gt; y en vínculos
+                        y formularios, establece dónde se deben abrir esos
+                        vínculos. Con el valor predeterminado _self, se abren
+                        los archivos vinculados en el mismo contexto que el
+                        documento actual. Otras opciones incluyen _blank, que
+                        abre todos los vínculos en una ventana nueva, el _parent
+                        del contenido actual, que puede ser el mismo que el de
+                        la herramienta si el abridor no es un iframe, o _top,
+                        que se encuentra en la misma pestaña del navegador, pero
+                        fuera de cualquier contexto para ocupar toda la pestaña.
+                        <br><br>
+                        La mayoría de los desarrolladores agregan el atributo
+                        target a pocos vínculos (si los hay) que quieren abrir
+                        en una ventana nueva de los vínculos o formularios en sí
+                        mismos, en lugar de usar &lt;base&gt;.
+                    </p>
+                    <pre><code>
+                        &lt;base target="_top" href="https://machinelearningworkshop.com" /&gt;
+                    </code></pre>
+                    <p>
+                        Si nuestro sitio web estuviera anidado dentro de un
+                        iframe en un sitio como Yummly, incluir el elemento
+                        &lt;base&gt; significaría que cuando un usuario haga
+                        clic en cualquier vínculo dentro de nuestro documento,
+                        el vínculo se cargará fuera del iframe y ocupará toda la
+                        ventana del navegador.
+                        <br><br>
+                        Una de las desventajas de este elemento es que los
+                        vínculos de anclaje se resuelven con &lt;base&gt;. El
+                        elemento &lt;base&gt; convierte de manera efectiva el
+                        vínculo &lt;a href="#ref"&gt; en &lt;a target="_top"
+                        href="https://machinelearningworkshop.com#ref" &gt;,
+                        lo que activa una solicitud HTTP a la URL base con
+                        el fragmento adjunto.
+                        <br><br>
+                        Otros aspectos que debes tener en cuenta sobre
+                        &lt;base&gt;: solo puede haber un
+                        elemento&lt;base&gt; en un documento y debe aparecer
+                        antes de que se usen las URL relativas, incluidas
+                        posibles referencias a hojas de estilo o secuencias
+                        de comandos. Si bien no es necesario, es
+                        recomendable incluir el atributo href, ya que el
+                        atributo target no tiene ningún efecto sin él.
+                        <br><br>
+                        El código ahora tiene el siguiente aspecto:
+                    </p>
+                    <pre><code>
+                        &lt;!DOCTYPE html&gt;
+                        &lt;html lang="en"&gt;
+                        &lt;head&gt;
+                            &lt;meta charset="utf-8" /&gt;
+                            &lt;title&gt;Machine Learning Workshop&lt;/title&gt;
+                            &lt;meta name="viewport" content="width=device-width" /&gt;
+                            &lt;link rel="stylesheet" src="css/styles.css" /&gt;
+                            &lt;link rel="icon" type="image/png" href="/images/favicon.png" /&gt;
+                            &lt;link rel="alternate" href="https://www.machinelearningworkshop.com/fr/" hreflang="fr-FR" /&gt;
+                            &lt;link rel="alternate" href="https://www.machinelearningworkshop.com/pt/" hreflang="pt-BR" /&gt;
+                            &lt;link rel="canonical" href="https://www.machinelearning.com" /&gt;
+                        &lt;/head&gt;
+                        &lt;body&gt;
+                        
+                            &lt;!-- &lt;script defer src="scripts/lightswitch.js"&lt;/script>--&gt;
+                            &lt;/body&gt;
+                        &lt;/html&gt;
+                    </code></pre>
+                </div>
+            </div>
+        </body>
+    </html>
