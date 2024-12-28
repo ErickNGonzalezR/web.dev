@@ -4,15 +4,16 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="css/estructuraDocumento.css">
+        <link rel="stylesheet" href="/css/navbar.css">
+        <link rel="stylesheet" href="/css/aside.css">
+
         <title>Estructura del documento</title>
     </head>
     <body>
-        <div>
-
-        </div>
+        <div id="navbar"></div>
         <div class="main-container">
             <div class="main">
-                <h1>Estructura del documento</h1>
+                <h1 id="estructuraDocumento">Estructura del documento</h1>
                 <p>
                     Los documentos HTML incluyen una declaración de tipo de
                     documento y el elemento raíz &lt;html&gt;. El encabezado y
@@ -39,7 +40,7 @@
                     título
                     o nombre del sitio o la aplicación.
                 </p>
-                <h3>
+                <h3 id="agregar">
                     Agregar a todos los documentos HTML
                 </h3>
                 <p>
@@ -148,7 +149,7 @@
                     centra en los componentes que se encuentran anidados dentro
                     de la &lt;head&gt;&lt;/head&gt; de apertura y cierre
                 </p>
-                <h3>
+                <h3 id="componentes">
                     Componentes obligatorios dentro de &lt;head&gt;
                 </h3>
                 <p>
@@ -295,7 +296,7 @@
                     &lt;/body&gt;
                 &lt;/html&gt;
             </code></pre>
-                <h3>
+                <h3 id="otroContenido">
                     Otro contenido de &lt;head&gt;
                 </h3>
                 <p>
@@ -739,7 +740,51 @@
                             &lt;/body&gt;
                         &lt;/html&gt;
                     </code></pre>
+                    <h5>
+                        Comentarios HTML
+                    </h5>
+                    <p>
+                        Ten en cuenta que la secuencia de comandos se une entre
+                        algunas llaves angulares, guiones y un flequillo. Así es
+                        como puedes comentar HTML. Dejaremos el guion como
+                        comentario hasta que tengamos el contenido real en la
+                        página. Los valores entre <!-- y --> no se podrán ver ni
+                        analizar. Los comentarios HTML se pueden colocar en
+                        cualquier lugar de la página, incluidos el encabezado o
+                        el cuerpo, a excepción de las secuencias de comandos o
+                        los bloques de estilo, en los que debes usar comentarios
+                        de JavaScript y CSS, respectivamente.
+                        <br><br>
+                        Ya viste los aspectos básicos de lo que contiene
+                        &lt;head&gt;,
+                        pero quieres aprender más que eso. En las próximas
+                        secciones, aprenderemos sobre las metaetiquetas y
+                        cómo controlar lo que se muestra cuando se vincula
+                        tu sitio web en las redes sociales.
+                    </p>
+                </div>
+                <div class="container-aside">
+                    <div class="aside">
+                        <a href="#estructuraDocumento" >Estructura del documento</a>
+                    </div>
+                    <div class="aside">
+                        <a href="#agregar" >Agregar a todos los documentos HTML</a>
+                    </div>
+                    <div class="aside">
+                        <a href="#componentes">Componentes obligatorios dentro de &lt;head&gt;</a>
+                    </div>
+                    <div class="aside">
+                        <a href="#otroContenido">Otro contenido de &lt;head&gt;</a>
+                    </div>    
                 </div>
             </div>
         </body>
     </html>
+    <script>
+        // Cargar el contenido de navbar.html en el div con id "navbar"
+        fetch('navbar.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('navbar').innerHTML = data;
+            });
+    </script>

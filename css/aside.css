@@ -1,0 +1,32 @@
+.container-aside {
+    top: 40%;
+    left: 10px;
+    position: fixed;
+    display: flex;
+    width: 200px;
+    flex-direction: column;
+    background-color: #0040c1;
+    z-index: 100;
+    justify-content: center;
+    border-radius: 10px;
+    height: auto; 
+    padding: 10px;
+    height: fit-content;    
+}
+
+.aside {
+    display: flex;
+    
+}
+.aside a:hover {
+    color: #0040c1;
+     background-color: white;
+} 
+
+.aside a {
+    width: 100%;
+    text-decoration: none;
+    color: white;
+    padding: 10px;
+    border-radius: 10px;
+}

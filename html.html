@@ -5,63 +5,17 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="/css/navbar.css">
         <link rel="stylesheet" href="/css/html.css">
+        <link rel="stylesheet" href="/css/aside.css">
 
         <title>html</title>
     </head>
 
     <body>
-        <div class="header">
-            <div class="hero-navbar">
-                <div class="navbar">
-                    <a href="index.html">Inicio</a>
-                    <div class="dropdown">
-                        <a href="html.html">Html</a>
-                        <div class="dropdown-content">
-                            <a href="EstructuraDocumento.html">Estructura del
-                                documento</a>
-                            <a href="#">Marketing</a>
-                            <a href="#">Consultoría</a>
-                            <a href="#">Diseño Web</a>
-                            <a href="#">Marketing</a>
-                            <a href="#">Consultoría</a>
-                            <a href="#">Diseño Web</a>
-                            <a href="#">Marketing</a>
-                            <a href="#">Consultoría</a>
-                            <a href="#">Diseño Web</a>
-                            <a href="#">Marketing</a>
-                            <a href="#">Consultoría</a>
-                            <a href="#">Diseño Web</a>
-                            <a href="#">Marketing</a>
-                            <a href="#">Consultoría</a>
-                            <a href="#">Diseño Web</a>
-                            <a href="#">Marketing</a>
-                            <a href="#">Consultoría</a>
-                        </div>
-                    </div>
-                    <div class="dropdown">
-                        <a href="#">Css</a>
-                        <div class="dropdown-content">
-                            <a href="#">Diseño Web</a>
-                            <a href="#">Marketing</a>
-                            <a href="#">Consultoría</a>
-                        </div>
-                    </div>
-                    <div class="dropdown">
-                        <a href="#">Javascript</a>
-                        <div class="dropdown-content">
-                            <a href="#">Diseño Web</a>
-                            <a href="#">Marketing</a>
-                            <a href="#">Consultoría</a>
-                        </div>
-                    </div>
-                    <a href="#">Contacto</a>
-                </div>
-            </div>
-        </div>
-
+        
+        <div id="navbar"></div>
         <div class="main">
             <div class="section">
-                <h1>¿Que es Html?</h1>
+                <h1 id="html">¿Que es Html?</h1>
                 <p>
                     El lenguaje de marcado de hipertexto (HTML) es el estándar
                     para
@@ -74,7 +28,7 @@
                     estructurarlo.
                 </p>
 
-                <h3>Elementos</h3>
+                <h3 id="elementos">Elementos</h3>
                 <p>
                     El HTML consiste en una serie de elementos que se usan para
                     encerrar
@@ -102,7 +56,7 @@
                 </p>
                 <img src="img/html/ejemploDeH1.png" alt>
 
-                <h3>Atributos</h3>
+                <h3 id="atributos">Atributos</h3>
                 <p>
                     Los atributos proporcionan información sobre el elemento. El
                     atributo, al igual que el resto
@@ -161,7 +115,7 @@
                     elemento.
                 </p>
 
-                <h3>Apariencia de los elementos</h3>
+                <h3 id="aparienciaElementos">Apariencia de los elementos</h3>
                 <p>
                     El aspecto predeterminado de los elementos semánticos se
                     establece
@@ -212,7 +166,7 @@
 
                 </span>
 
-                <h3>Elemento, atributos y JavaScript</h3>
+                <h3 id="elementoAtributosJavaScript">Elemento, atributos y JavaScript</h3>
                 <p>
                     El Document Object Model (DOM) es la representación de datos
                     de
@@ -261,25 +215,33 @@
                 </p>
             </div>
 
-            <div class="aside">
+            <div class="container-aside">
 
-                <div>
-                    <a href>¿Que es Html? </a>
+                <div class="aside">
+                    <a href="#html">¿Que es Html? </a>
                 </div>
-                <div>
-                    <a href>Elementos </a>
+                <div class="aside">
+                    <a href="#elementos">Elementos </a>
                 </div>
-                <div>
-                    <a href>Atributos </a>
+                <div class="aside">
+                    <a href="#atributos">Atributos </a>
                 </div>
-                <div>
-                    <a href>Apariencia de los elementos</a>
+                <div class="aside">
+                    <a href="#aparienciaElementos">Apariencia de los elementos</a>
                 </div>
-                <div>
-                    <a href>Elemento, atributos y JavaScript</a>
+                <div class="aside">
+                    <a href="#elementoAtributosJavaScript">Elemento, atributos y JavaScript</a>
                 </div>
 
             </div>
         </div>
     </body>
 </html>
+<script>
+    // Cargar el contenido de navbar.html en el div con id "navbar"
+    fetch('navbar.html')
+        .then(response => response.text())
+        .then(data => {
+            document.getElementById('navbar').innerHTML = data;
+        });
+</script>

@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Metadata</title>
+        <link rel="stylesheet" href="/css/navbar.css">
+        <link rel="stylesheet" href="/css/aside.css">
+        <link rel="stylesheet" href="css/html.css">
+    </head>
+    <body>
+        <div id="navbar"></div>
+        <div class="main">
+            <div class="section">
+                <h1 id="metadata">Metadata </h1>
+                <p>
+                    En la sección de estructura del documento, aprendiste sobre
+                    los componentes que (casi) encuentras siempre en el <head>
+                        de un documento HTML. Si bien todo lo que contiene
+                        &lt;head&gt;, incluidos &lt;title&gt;, &lt;link&gt;,
+                        &lt;script&gt;, &lt;style&gt; y el &lt;base&gt; menos
+                        usado, es en realidad "metadatos", hay una etiqueta
+                        &lt;meta&gt; para los metadatos que no pueden
+                        representarse
+                        con estos otros elementos.
+                        <br><br>
+                        La especificación incluye varios metatipos, y existen
+                        muchos otros metatipos compatibles con aplicaciones que
+                        no se encuentran en ninguna especificación oficial. En
+                        esta sección, analizaremos los atributos y los valores
+                        que se incluyen en las especificaciones, algunos
+                        metadatos comunes y valores de contenido, y algunos
+                        metatipos que son increíblemente útiles para la
+                        optimización para motores de búsqueda, la publicación en
+                        redes sociales y la experiencia del usuario que no están
+                        definidos oficialmente por <a
+                            href="https://html.spec.whatwg.org/multipage/semantics.html#the-meta-element">WHATWG</a>
+                        o <a
+                            href="https://www.w3.org/MarkUp/html-spec/Elements/META.html">W3C</a>.
+                    </p>
+                    <h3 id="etiquetasMetaObligatorias">Etiquetas &lt;meta&gt;
+                        obligatorias</h3>
+                    <p>
+                        Revisemos las dos etiquetas &lt;meta&gt; necesarias que
+                        ya se
+                        abordaron (la declaración de conjunto de caracteres y la
+                        metaetiquetas de viewport) y comprendamos mejor la
+                        etiqueta &lt;meta&gt; en el proceso.
+                        <br><br>
+                        El atributo charset del elemento &lt;meta&gt; surgió de
+                        una
+                        manera única. Originalmente, los metadatos del grupo de
+                        caracteres se escribían como &lt;meta
+                        http-equiv="Content-Type"
+                        content="text/html; charset=&lt;characterset&gt;" /&gt;,
+                        pero
+                        muchos desarrolladores escribieron mal el atributo
+                        content como content="text/html"
+                        charset="&lt;characterset&gt;" que los navegadores
+                        comenzaron
+                        a admitir charset como atributo. Ahora se
+                        estandariza en el estándar dinámico HTML como &lt;meta
+                        charset="&lt;charset&gt;" /&gt;, donde, para
+                        HTML,&lt;charset&gt; es la cadena "utf-8" que no
+                        distingue
+                        mayúsculas de minúsculas. de Google Cloud.
+                        <br><br>
+                        Es posible que hayas notado la metadeclaración
+                        del grupo de caracteres original que se usaba
+                        para incluir el atributo http-equiv. Es la forma
+                        abreviada de "http-equivalent", ya que la
+                        metaetiquetas es básicamente replicando lo que
+                        podría configurarse en un encabezado HTTP.
+                        Además de la excepción charset, todas las demás
+                        metaetiquetas definidas en la especificación
+                        HTML de WHAT contienen el atributo http-equiv
+                        o name.
+                    </p>
+                    <h3 id="metaetiquetasOficialmente">
+                        Metaetiquetas definidas oficialmente
+                    </h3>
+                    <p>
+                        Existen dos tipos principales de metaetiquetas:
+                        directivas pragma, con el atributo http-equiv, como la
+                        metaetiqueta charset que solía tener, y metatipos con
+                        nombre, como la metaetiqueta de viewport con el atributo
+                        name, que ya analizamos en la sección de estructura del
+                        documento. Los metatipos name y http-equiv deben incluir
+                        el atributo content, que define el contenido del tipo de
+                        metadatos enumerados.
+                    </p>
+                    <h4>
+                        Directivas de Pragma
+                    </h4>
+                    <p>
+                        El atributo http-equiv tiene como valor una directiva
+                        pragma. Estas directivas describen cómo se debe analizar
+                        la página. Los valores http-equiv admitidos habilitan la
+                        configuración de directivas cuando no puedes establecer
+                        encabezados HTTP directamente.
+                        <br><br>
+                        La especificación define siete <a
+                            href="https://html.spec.whatwg.org/multipage/semantics.html#pragma-directives">directivas
+                            pragma</a> , la mayoría de las cuales tienen otros
+                        métodos de configuración. Por ejemplo, si bien puedes
+                        incluir una directiva de idioma con &lt;meta
+                        http-equiv="content-language" content="en-us" /&gt;, ya
+                        hablamos sobre el uso del <a
+                            href="https://web.dev/learn/html/document-structure?hl=es-419#content_language">atributo
+                            lang en el elemento HTML</a> , que es lo que se debe
+                        usar en su lugar.
+
+                        La directiva pragma más común es la refresh.
+                    </p>
+                    <pre><code>
+&lt;meta http-equiv="refresh" content="60; https://machinelearningworkshop.com/regTimeout" /&gt;
+                    </code></pre>
+                    <p>
+                        Si bien puedes establecer una directiva para que se
+                        actualice en un intervalo de la cantidad de segundos
+                        establecida en el atributo content, o incluso
+                        redireccionar a una URL diferente, esto no es
+                        recomendable. Actualizar y redireccionar el contenido
+                        sin una solicitud explícita del usuario para hacerlo es
+                        una usabilidad deficiente y afecta negativamente la
+                        accesibilidad. ¿No te agrada que esté en medio de un
+                        párrafo y la página se restablezca? Imagina que tienes
+                        problemas cognitivos o de visión y eso sucede. Si vas a
+                        configurar una actualización con un redireccionamiento,
+                        asegúrate de que el usuario tenga tiempo suficiente para
+                        leer la página, un vínculo para acelerar el proceso y,
+                        si corresponde, un botón para "detener el reloj". y
+                        evitar que se produzca el redireccionamiento.
+                        <br><br>
+                        No la incluiremos en nuestro sitio porque no hay motivo
+                        para agotar el tiempo de espera de una sesión de usuario
+                        que no sea para molestar a nuestros visitantes.
+                        <br><br>
+                        La directiva pragma más útil es content-security-policy,
+                        que permite definir una <a
+                            href="https://web.dev/articles/csp?hl=es-419">política
+                            de contenido</a>
+                        para el documento actual. En general, las políticas de
+                        contenido especifican los orígenes de servidores y los
+                        extremos de secuencias de comandos permitidos, lo que
+                        ayuda a proteger contra ataques de secuencias de
+                        comandos entre sitios.
+                    </p>
+                    <pre><code>
+&lt;meta http-equiv="content-security-policy" content="default-src https:" /&gt;
+                    </code></pre>
+                    <h4>
+                        Metaetiquetas con nombre
+                    </h4>
+                    <p>
+                        La mayoría de las veces, incluirás metadatos con nombre.
+                        Incluye el atributo name, cuyo valor del atributo es el
+                        nombre de los metadatos. Al igual que con las directivas
+                        pragma, el atributo content es obligatorio.
+                        <br><br>
+                        El atributo name es el nombre de los metadatos. Además
+                        de viewport, es probable que quieras incluir description
+                        y theme-color, pero no keywords
+                    </p>
+                    <h5>
+                        Palabras clave
+                    </h5>
+                    <p>
+                        Los vendedores de snake-oil de optimización para motores
+                        de búsqueda abusaron de la metaetiqueta de palabras
+                        clave y las llenaron con listas de palabras spam
+                        separadas por comas en lugar de listas de términos clave
+                        relevantes, de manera que los motores de búsqueda ya no
+                        consideran que estos metadatos sean útiles. No es
+                        necesario que desperdicies tiempo, esfuerzo ni bytes en
+                        el agregado.
+                    </p>
+                    <h5>
+                        Descripción
+                    </h5>
+                    <p>
+                        Sin embargo, el valor description es útil para la SEO:
+                        el valor del contenido de la descripción suele ser lo
+                        que los motores de búsqueda muestran debajo del título
+                        de la página en los resultados de la búsqueda. Varios
+                        navegadores, como Firefox y Opera, utilizan esta
+                        etiqueta como descripción predeterminada de las páginas
+                        agregadas a favoritos. La descripción debe ser un
+                        resumen breve y preciso del contenido de la página.
+                    </p>
+                    <pre><code>
+&lt;meta name="description" content="Register for a machine learning workshop at our 
+                                     school for machines who can't learn good and want to do other stuff good too" /&gt;
+                    </code></pre>
+                    <h5>
+                        Robots
+                    </h5>
+                    <p>
+                        Si no quieres que los motores de búsqueda indexen tu
+                        sitio, puedes informárselo. &lt;meta name="robots"
+                        content="noindex, nofollow" /&gt; indica a los bots que
+                        no indexen el sitio ni sigan ningún vínculo. Los bots
+                        deberían escuchar la solicitud, pero no hay ninguna ley
+                        que exija que la presten. No es necesario que incluyas
+                        &lt;meta name="robots" content="index, follow" /&gt;
+                        para
+                        solicitar que se indexe el sitio y se sigan los
+                        vínculos, ya que es la opción predeterminada, a menos
+                        que los encabezados HTTP indiquen lo contrario.
+                    </p>
+                    <pre><code>
+&lt;meta name="robots" content="index, follow" /&gt;
+                    </code></pre>
+                    <h5>
+                        Color del tema
+                    </h5>
+                    <p>
+                        El valor theme-color te permite definir un color para
+                        personalizar la interfaz del navegador. El valor de
+                        color del atributo de contenido se utilizará en
+                        navegadores y sistemas operativos compatibles, lo que te
+                        permitirá proporcionar un color sugerido para los
+                        usuarios-agentes que admiten colorear la barra de
+                        título, la barra de pestañas y otros componentes de
+                        Chrome. Esta metaetiqueta es especialmente útil para las
+                        <a href="https://web.dev/learn/pwa">apps web
+                            progresivas</a>. Sin embargo, si incluyes un archivo
+                        de manifiesto, que es un archivo de manifiesto requerido
+                        por una AWP, puedes incluir el color del tema allí. Sin
+                        embargo, definirlo en el HTML garantiza que se encuentre
+                        el color inmediatamente, antes de la renderización, lo
+                        que puede ser más rápido en la primera carga que cuando
+                        se espera el manifiesto.
+                        <br><br>
+                        Para establecer el color del tema en el tono azul del
+                        color de fondo de nuestro sitio, incluye:
+                    </p>
+                    <pre><code>
+&lt;meta name="theme-color" content="#226DAA" /&gt;
+                    </code></pre>
+                    <p>
+                        La metaetiqueta de color de tema puede incluir un
+                        atributo media que habilita la configuración de
+                        diferentes colores de tema según las consultas de
+                        medios. El atributo media solo se puede incluir en esta
+                        metaetiqueta y se ignora en todas las demás.
+                        <br><br>
+                        Existen <a
+                            href="https://developer.mozilla.org/es/docs/Web/HTML/Element/meta/name">
+                            otros metavalores name</a> pero los que analizamos
+                        son los más comunes. A excepción de la declaración de
+                        diferentes valores de theme-color para distintas
+                        consultas de medios, incluye solo una de cada
+                        metaetiqueta. Si necesitas incluir más de un tipo de
+                        metaetiqueta para admitir los navegadores heredados, los
+                        valores heredados deben aparecer después de los valores
+                        más nuevos, ya que los usuarios-agentes leen reglas
+                        sucesivas hasta que encuentran una coincidencia.
+                    </p>
+                    <h3 id="abrirGráfico">
+                        Abrir gráfico
+                    </h3>
+                    <p>
+                        <a href="https://ogp.me/">Open Graph</a> y protocolos de
+                        metaetiquetas similares se pueden usar para controlar la
+                        manera en que los sitios de redes sociales, como
+                        Twitter, LinkedIn y Facebook, muestran los vínculos a tu
+                        contenido. Si no se incluyen, los sitios de redes
+                        sociales tomarán correctamente el título de tu página y
+                        la descripción de la metaetiqueta de descripción, y se
+                        presentará la misma información que los motores de
+                        búsqueda, pero puedes configurar intencionalmente lo que
+                        deseas que vean los usuarios cuando se publique un
+                        vínculo a tu sitio.
+                        <br><br>
+                        Cuando publicas un vínculo a MachineLearningWorkshop.com
+                        o web.dev en Facebook o Twitter, aparece una tarjeta con
+                        una imagen, un título y una descripción del sitio. La
+                        tarjeta completa es un hipervínculo a la URL que
+                        proporcionaste.
+                        <br><br>
+                        Las metaetiquetas de Open Graph tienen dos atributos
+                        cada una: el atributo property, en lugar del atributo
+                        name, y el contenido o valor de esa propiedad. El
+                        atributo property no está definido en las
+                        especificaciones oficiales, pero es ampliamente
+                        compatible con aplicaciones que admiten el protocolo
+                        Open Graph. Creando "nuevo" atributos como property
+                        garantizan que los valores creados para el atributo del
+                        protocolo no entren en conflicto con los valores futuros
+                        de los atributos name o http-equiv.
+                        <br><br>
+                        Crea una tarjeta multimedia de Facebook:
+                    </p>
+                    <pre><code>
+&lt;meta property="og:title" content="Machine Learning Workshop" /&gt;
+&lt;meta property="og:description" content="School for Machines Who Can't Learn Good and Want 
+                                            to Do Other Stuff Good Too" /&gt;
+&lt;meta property="og:image" content="http://www.machinelearningworkshop.com/image/all.png" /&gt;
+&lt;meta property="og:image:alt" content="Black and white line drawing of refrigerator, french door 
+                                            refrigerator, range, washer, fan, microwave, vaccuum, space heater and air conditioner" /&gt;
+                    </code></pre>
+                    <p>
+                        Incluye un título de la publicación para que se muestre.
+                        Por lo general, este título se muestra debajo de la
+                        imagen y arriba de la descripción. La descripción debe
+                        tener hasta tres oraciones que resuman tu publicación.
+                        Esto aparecerá después del título definido en og:title.
+                        Proporciona la URL absoluta de la imagen del banner que
+                        quieres que se muestre, incluido el protocolo https://.
+                        Cuando incluyas una imagen en HTML, incluye siempre una
+                        descripción de texto alternativo para la imagen, incluso
+                        si esta aparecerá en otro lugar. Para las tarjetas de
+                        redes sociales de Open Graph, define alt como el valor
+                        de contenido de la propiedad og:image:alt. También
+                        puedes incluir una URL canónica con og:url.
+                    </p>
+                    <img src="img/html/ejemploCards.png" alt>
+                    <p>
+                        Todas estas metaetiquetas se definen en el <a
+                            href="https://ogp.me/">protocolo Open Graph</a>. Los
+                        valores deben ser el contenido que deseas que muestre la
+                        aplicación web de terceros.
+                        <br><br>
+                        Otras redes sociales tienen sus propias sintaxis
+                        similares, como el <a
+                            href="https://developer.x.com/en/docs/x-for-websites/cards/overview/markup">lenguaje
+                            de marcado de tarjetas de Twitter</a>. Esto permite
+                        proporcionar una experiencia diferente según el lugar
+                        donde aparezca el vínculo o habilitar el seguimiento del
+                        vínculo agregando un parámetro al final de la URL.
+                    </p>
+                    <pre><code>
+&lt;meta name="twitter:title" content="Machine Learning Workshop" /&gt;
+&lt;meta name="twitter:description" content="School for machines who can't learn good and want to do other 
+                                          stuff good too" /&gt;
+&lt;meta name="twitter:url" content="https://www.machinelearningworkshop.com/?src=twitter" /&gt;
+&lt;meta name="twitter:image:src" content="http://www.machinelearningworkshop.com/image/all.png" /&gt;
+&lt;meta name="twitter:image:alt" content="27 different home appliances" />
+&lt;meta name="twitter:creator" content="@estellevw" /&gt;
+&lt;meta name="twitter:site" content="@perfmattersconf" /&gt;
+                    </code></pre>
+                    <p>
+                        En el caso de Twitter, para garantizar que el valor del
+                        atributo name no entre en conflicto con las
+                        especificaciones futuras, en lugar de usar un atributo
+                        nuevo, como el atributo property en Open Graph, para los
+                        datos de tarjetas de Twitter, todos los valores de
+                        nombre incluyen el prefijo twitter:.
+                        <br><br>
+                        Puedes consultar cómo se verá tu tarjeta de redes
+                        sociales en <a
+                            href="https://x.com/login?redirect_after_login=https%3A%2F%2Fcards-dev.twitter.com%2Fvalidator%3Fmx%3D2">Twitter</a>
+                        y <a
+                            href="https://developers.facebook.com/tools/debug/?q=https%3A%2F%2Fmachinelearningworkshop.com">Facebook</a>.
+                    </p>
+                    <img src="img/html/ejemploCards2.png" alt>
+                    <p>
+                        Puedes tener diferentes imágenes, títulos y
+                        descripciones de tarjetas para distintos sitios de redes
+                        sociales o para diferentes parámetros de vínculos. Por
+                        ejemplo <a
+                            href="https://perfmattersconf.com/">https://perfmattersconf.com</a>
+                        establece valores diferentes para og:image, og:title y
+                        og:description según el parámetro de la URL.
+                    </p>
+                    <img src="img/html/ejemploCards3.png" alt>
+                    <br>
+                    <img src="img/html/ejemploCards4.png" alt>
+                    <p>
+                        Si ingresas <a
+                            href="https://perfmattersconf.com/?name=erica">https://perfmattersconf.com?name=erica</a>
+                        y <a
+                            href="https://perfmattersconf.com/?name=melanie">https://perfmattersconf.com?name=melanie</a>
+                        en el <a
+                            href="https://x.com/i/flow/login?input_flow_data=%7B%22requested_variant%22%3A%22eyJyZWRpcmVjdF9hZnRlcl9sb2dpbiI6Imh0dHBzOi8vY2FyZHMtZGV2LnR3aXR0ZXIuY29tL3ZhbGlkYXRvciJ9%22%7D">Validador
+                            de tarjetas de Twitter</a>, verás estas dos tarjetas
+                        diferentes: proporcionamos contenido diferente, a pesar
+                        de que ambos tienen vínculos a la misma página principal
+                        de la conferencia.
+                    </p>
+                    <h3 id="otraMetainformaciónUtil">
+                        Otra metainformación útil
+                    </h3>
+                    <p>
+                        Si alguien agrega tu sitio a favoritos, lo agrega a su
+                        pantalla de inicio, si tu sitio es una aplicación web
+                        progresiva o si funciona sin conexión o si no se
+                        muestran las funciones de Chrome del navegador, puedes
+                        proporcionar íconos de aplicaciones para la pantalla
+                        principal del dispositivo móvil.
+                        <br><br>
+                        Puedes usar la etiqueta &lt;link&gt; para vincular las
+                        imágenes de inicio que deseas usar. Este es un ejemplo
+                        de cómo incluir algunas imágenes con consultas de
+                        medios:
+                    </p>
+                    <pre><code>
+&lt;link rel="apple-touch-startup-image" href="icons/ios-portrait.png" media="orientation: portrait" /&gt;
+&lt;link rel="apple-touch-startup-image" href="icons/ios-landscape.png" media="orientation: landscape" /&gt;
+                    </code></pre>
+                    <p>
+                        Si tu sitio o aplicación son compatibles con las
+                        aplicaciones web, es decir que el sitio puede funcionar
+                        por sí solo con una IU mínima, como sin botón Atrás,
+                        puedes usar metaetiquetas para indicarle al navegador lo
+                        siguiente:
+                    </p>
+                    <pre><code>
+&lt;meta name="apple-mobile-web-app-capable" content="yes" /&lt;
+&lt;meta name="mobile-web-app-capable" content="yes" /&lt;
+                    </code></pre>
+                    <p>
+                        Inclúyelos únicamente si la app es realmente capaz de
+                        hacerlo. De lo contrario, estarás estableciendo tus
+                        seguidores más fervientes, aquellos que agregaron tu
+                        sitio a su pantalla de inicio, para una experiencia del
+                        usuario realmente mala. Perderás su amor.
+                        <br><br>
+                        Si alguien va a guardar tu ícono en la pantalla
+                        principal de un dispositivo pequeño, debes
+                        proporcionarle al sistema operativo un nombre corto que
+                        no ocupe mucho espacio en la pantalla principal de un
+                        dispositivo pequeño. Puedes hacerlo incluyendo una
+                        metaetiqueta o usando un archivo de manifiesto web. A
+                        continuación, se muestra el método de metaetiqueta:
+                    </p>
+                    <pre><code>
+&lt;meta name="apple-mobile-web-app-title" content="MLW" /&gt;
+&lt;meta name="application-name" content="MLW" /&gt;
+                    </code></pre>
+                    <p>
+                        Viste varias metaetiquetas, que alargarán el título. Si
+                        realmente estás creando una aplicación web progresiva
+                        compatible con una app web y compatible con el uso sin
+                        conexión, en lugar de incluir estas dos metaetiquetas
+                        adicionales, puedes incluir short_name: MLW de forma más
+                        simple y concisa en un archivo webmanifest.
+                        <br><br>
+                        El archivo de manifiesto puede impedir que un encabezado
+                        difícil de manejar esté lleno de etiquetas &lt;link&gt;
+                        y &lt;meta&gt;. Podemos crear un archivo de manifiesto,
+                        generalmente llamado manifest.webmanifest o
+                        manifest.json. Luego, usamos la etiqueta &lt;link&gt;
+                        práctica
+                        con un atributo rel establecido en manifest y el
+                        atributo href establecido en la URL del archivo de
+                        manifiesto:
+                    </p>
+                    <pre><code>
+                        &lt;link rel="manifest" href="/mlw.webmanifest" /&gt;
+                    </code></pre>
+                    <p>
+                        Esta serie se enfoca en HTML, pero puedes consultar el
+                        <a
+                            href="https://web.dev/learn/pwa/web-app-manifest?hl=es-419">curso
+                            web.dev sobre aplicaciones web progresivas</a> o la
+                        <a
+                            href="https://developer.mozilla.org/es/docs/Web/Manifest">documentación
+                            del manifiesto de apps web de MDN</a>.
+                    </p>
+                    <pre><code>
+&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+    &lt;meta charset="utf-8" /&gt;
+    &lt;title&gt;Machine Learning Workshop&lt;/title&gt;
+    &lt;meta name="viewport" content="width=device-width" /&gt;
+    &lt;meta name="description" content="Register for a machine learning workshop at our school for machines who can't learn good and want to do other stuff good too" /&gt;
+    &lt;meta property="og:title" content="Machine Learning Workshop" /&gt;
+    &lt;meta property="og:description" content="School for Machines Who Can't Learn Good and Want to Do Other Stuff Good Too" /&gt;
+    &lt;meta property="og:image" content="http://www.machinelearningworkshop.com/image/all.png" /&gt;
+    &lt;meta property="og:image:alt" content="Black and white line drawing of refrigerator, french door refrigerator, range, washer, fan, microwave, vaccuum, space heater and air conditioner" /&gt;
+    &lt;meta name="twitter:title" content="Machine Learning Workshop" /&gt;
+    &lt;meta name="twitter:description" content="School for machines who can't learn good and want to do other stuff good too" /&gt;
+    &lt;meta name="twitter:url" content="https://www.machinelearningworkshop.com/?src=twitter" /&gt;
+    &lt;meta name="twitter:image:src" content="http://www.machinelearningworkshop.com/image/all.png" /&gt;
+    &lt;meta name="twitter:image:alt" content="27 different home appliances" /&gt;
+    &lt;meta name="twitter:creator" content="@estellevw" /&gt;
+    &lt;meta name="twitter:site" content="@perfmattersconf" /&gt;
+    &lt;link rel="stylesheet" src="css/styles.css" /&gt;
+    &lt;link rel="icon" type="image/png" href="/images/favicon.png" /&gt;
+    &lt;link rel="alternate" href="https://www.machinelearningworkshop.com/fr/" hreflang="fr-FR" /&gt;
+    &lt;link rel="alternate" href="https://www.machinelearningworkshop.com/pt/" hreflang="pt-BR" /&gt;
+    &lt;link rel="canonical" href="https://www.machinelearning.com" /&gt;
+    &lt;link rel="manifest" href="/mlwmanifest.json" /&gt;
+&lt;/head&gt;
+&lt;body&gt;
+                        
+    &lt;!-- &lt;script defer src="scripts/lightswitch.js"&gt;&lt;/script>--&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+                    </code></pre>
+                </div>
+
+                <div class="container-aside">
+
+                    <div class="aside">
+                        <a href="#metadata ">Metadata</a>
+                    </div>
+                    <div class="aside">
+                        <a href="#etiquetasMetaObligatorias">Etiquetas
+                            &lt;meta&gt; obligatorias</a>
+                    </div>
+                    <div class="aside">
+                        <a href="#metaetiquetasOficialmente">Metaetiquetas
+                            definidas oficialmente </a>
+                    </div>
+                    <div class="aside">
+                        <a href="#abrirGráfico">Abrir gráfico</a>
+                    </div>
+                    <div class="aside">
+                        <a href="#otraMetainformaciónUtil">Otra metainformación
+                            útil</a>
+                    </div>
+
+                </div>
+            </div>
+        </body>
+    </html>
+    <script>
+    // Cargar el contenido de navbar.html en el div con id "navbar"
+    fetch('navbar.html')
+        .then(response => response.text())
+        .then(data => {
+            document.getElementById('navbar').innerHTML = data;
+        });
+</script>
